@@ -1,0 +1,52 @@
+﻿<Window x:Class="Pixel_Art.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pixel_Art"
+        mc:Ignorable="d"
+        Title="PixelArt" Height="600" Width="1000">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Width" Value="70"/>
+        </Style>
+        <Style TargetType="RadioButton">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="GroupName" Value="colores"/>
+        </Style>
+    </Window.Resources>
+    <DockPanel x:Name="aplicacion">
+        <GroupBox Header="Crear nuevo" FontWeight="Bold" FontSize="18" BorderBrush="Black" BorderThickness="2" Width="150"  VerticalAlignment="Top" Margin=" 10,30">
+            <StackPanel>
+                <Button x:Name="buttonPequeño" Content="Pequeño" Click="NuevoGridButton" />
+                <Button x:Name="buttonMediano" Content="Mediano" Click="NuevoGridButton"/>
+                <Button x:Name="buttonGrande" Content="Grande" Click="NuevoGridButton"/>
+            </StackPanel>
+        </GroupBox>
+        <StackPanel DockPanel.Dock="Right">
+            <Border Width="120" BorderBrush="Black" BorderThickness="2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10,30">
+                <StackPanel>
+                    <RadioButton Content="Negro" Tag="#Negro" IsChecked="True" Checked="Color_Checked"/>
+                    <RadioButton Content="Blanco" Tag="#Blanco" Checked="Color_Checked"/>
+                    <RadioButton Content="Azul"  Tag="#Azul" Foreground="#FF0875F7" Checked="Color_Checked"/>
+                    <RadioButton Content="Amarillo" Tag="#Amarillo" Foreground="#FFD2DA1E" Checked="Color_Checked"/>
+                    <RadioButton Content="Verde" Tag="Verde" Foreground="LawnGreen" Checked="Color_Checked"/>
+                    <RadioButton Content="Rojo" Tag="Rojo" Foreground="Red" Checked="Color_Checked"/>
+                    <RadioButton Content="Marron" Tag="Marron" Foreground="Brown" Checked="Color_Checked"/>
+                    <RadioButton Content="Rosa" Tag="#Rosa" Foreground="#FFFF889D" Checked="Color_Checked"/>
+                    <RadioButton Content="Morado" Tag="#Morado" Foreground="#FFAC23AC" Checked="Color_Checked"/>
+                    <RadioButton Content="Naranja" Tag="#Naranja" Foreground="#FFFF6800" Checked="Color_Checked"/>
+                    <RadioButton Content="Personalizado" Tag="Personalizado"/>
+                    <TextBox x:Name="colorPersonalizadoTextBox" IsEnabled="False" Margin="5"/>
+                </StackPanel>
+            </Border>
+            <Button x:Name="RellenarButton" Content="Rellenar" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Rellenar"/>
+        </StackPanel>
+        <Grid x:Name="espacioDibujo" Margin="10">
+        </Grid>
+    </DockPanel>
+</Window>
